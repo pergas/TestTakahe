@@ -8,7 +8,8 @@
   <body>
     <img src='' id='QRCode'>
 
-    <p>UUID:<span id="UUIDdisplay"></span></p>
+	<p>UUID:<span id="UUIDdisplay"></span></p>
+	<p>page version: 0.1 </p>
 
     <script>
       var dt = new Date().getTime();
@@ -17,11 +18,11 @@
           dt = Math.floor(dt/16);
           return (c=='x' ? r :(r&0x3|0x8)).toString(16);
       });
+      
       document.getElementById("UUIDdisplay").innerHTML = uuid;
 	  document.getElementById("QRCode").src = "http://chart.googleapis.com/chart?chs=300x300&cht=qr&choe=UTF-8&chl=%7B%22relyingPartyLogo%22%3A%22https%3A%2F%2Fi.imgur.com%2FhK86LQC.png%22%2C%20%22relyingPartyId%22%3A%222%22%2C%22relyingPartySessionId%22%3A%22" + uuid + "%22%2C%22attributesToSend%22%3A%5B%22nsn%22%2C%22email%22%5D%7D";
     </script>
     
-	<img src="http://chart.googleapis.com/chart?chs=300x300&cht=qr&choe=UTF-8&chl=Home%20of%20the%20Weaver>
-		  <p>page version: 0.1 </p>
+		  
   </body>
 </html>
