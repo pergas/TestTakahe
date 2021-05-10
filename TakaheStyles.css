@@ -46,6 +46,14 @@ article {
   height: 360px; /* only for demonstration, should be removed */
 }
 
+fullarticle {
+  float: left;
+  padding: 20px;
+  width: 80%;
+  background-color: #f1f1f1;
+  height: 360px; /* only for demonstration, should be removed */
+}
+
 appform {
   float: left;
   padding: 20px;
@@ -55,14 +63,19 @@ appform {
 }
 
 ul.verifiedList {
-  list-style-image: url('http://clipart-library.com/new_gallery/1-14062_green-check-png-green-circle-check-mark.png');
+  list-style-image: url('https://pergas.github.io/TestTakahe/green_tick.png');
+    padding-left: 35px;
+	padding-top: 1px;
+	padding-bottom: 2px;
 }
 
-.ol {
-  background: lightgreen;
-  padding-left: 3px;
-  padding-right: 3px;
-  border: solid blue thin;    
+
+button {
+background-color: lightgreen;
+text-align: center;
+margin: 10px 10px 10px 10px;
+padding: 10px 10px 10px 10px;
+
 }
 
 /* Clear floats after the columns */
