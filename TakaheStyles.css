@@ -58,6 +58,13 @@ ul.verifiedList {
   list-style-image: url('http://clipart-library.com/new_gallery/1-14062_green-check-png-green-circle-check-mark.png');
 }
 
+.ol {
+  background: lightgreen;
+  padding-left: 3px;
+  padding-right: 3px;
+  border: solid blue thin;    
+}
+
 /* Clear floats after the columns */
 section::after {
   content: "";
