@@ -54,6 +54,10 @@ appform {
   height: 360px; /* only for demonstration, should be removed */
 }
 
+ul.verifiedList {
+  list-style-image: url('http://clipart-library.com/new_gallery/1-14062_green-check-png-green-circle-check-mark.png');
+}
+
 /* Clear floats after the columns */
 section::after {
   content: "";
