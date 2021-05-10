@@ -46,6 +46,14 @@ article {
   height: 360px; /* only for demonstration, should be removed */
 }
 
+appform {
+  float: left;
+  padding: 20px;
+  width: 870%;
+  background-color: #f1f1f1;
+  height: 360px; /* only for demonstration, should be removed */
+}
+
 /* Clear floats after the columns */
 section::after {
   content: "";
