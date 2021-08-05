@@ -1,1 +1,2 @@
-{"SessionID":"x1234:1234","agent":"LordOfGranite","Request":["identity","email"],"imageURL":"https://i.imgur.com/I25hSPf.png"}
+{"relyingPartyLogo":"https://pergas.github.io/TestTakahe/Takahe.png","relyingPartyID":"1","relyingPartySessionID":"UUID","attributestoSend":["nsn","identity","email"]}
+
