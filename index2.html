@@ -8,54 +8,53 @@
 </head>
 <body>
 
-<header>
-  <h2>Example Website</h2>
-</header>
+	<header>
+		<h2>Example Website</h2>
+	</header>
 
-<section>
-  <nav>
-    <ul>
-      <li><a href="#">Apply</a></li>
-      <li><a href="#">About</a></li>
-      <li><a href="#">Contact</a></li>
-      <li><a href="#">Privacy Policy</a></li>
-    </ul>
-  </nav>
-  
-  <QRCode>
-  <img src='' id='QRCode' style=''>
-  <p style="font-size: 10px;">UUID:<span id="UUIDdisplay"></span> </p>
-  </QRCode>
+	<section>
+		<nav>
+			<ul>
+				<li><a href="#">Apply</a></li>
+			        <li><a href="#">About</a></li>
+			        <li><a href="#">Contact</a></li>
+			        <li><a href="#">Privacy Policy</a></li>
+		    	</ul>
+		</nav>
 
-	
-  <article>
-    <h1>Apply</h1>
-    <p>Thank you for applying. Please scan the QR code below to begin your application. </p>
-    <p>Scanning the QR code requests the following from your Identity Wallet:
-    <ul>
-    	<li>Identity (including full name and date of birth)</li>
-        <li>Email Address</li>
-        <li>National Student Number</li>
-    </ul>
-    
-    </p>
-  </article>
-</section>
+		<QRCode>
+			<div id='QRCode'></div>
+			<p style="font-size: 10px;">UUID:<span id="UUIDdisplay"></span> </p>
+		</QRCode>
 
-<footer>
-  <p>(c) Test Website</p>
-  <p>page version: 0.1 </p>
-</footer>
+		<article>
+			<h1>Apply</h1>
+			<p>Thank you for applying. Please scan the QR code below to begin your application. </p>
+			<p>Scanning the QR code requests the following from your Identity Wallet:
+			<ul>
+				<li>Identity (including full name and date of birth)</li>
+				<li>Email Address</li>
+				<li>National Student Number</li>
+			</ul>
+		</article>
+	</section>
 
-    <script>
-      var dt = new Date().getTime();
-      var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-          var r = (dt + Math.random()*16)%16 | 0;
-          dt = Math.floor(dt/16);
-          return (c=='x' ? r :(r&0x3|0x8)).toString(16);
-      });
-      document.getElementById("UUIDdisplay").innerHTML = uuid;
-	  document.getElementById("QRCode").src = "%7B%22relyingPartyLogo%22%3A%22https%3A%2F%2Fpergas.github.io%2FTestTakahe%2FTakahe.png%22%2C%22relyingPartyID%22%3A%221%22%2C%22relyingPartySessionID%22%3A%22" + uuid + "%22%2C%22attributestoSend%22%3A%5B%22nsn%22%2C%22identity%22%5D%7D";
+	<footer>
+		  <p>(c) Test Website</p>
+		  <p>page version: 0.1 </p>
+	</footer>
+
+    	<script type="text/javascript">
+		var dt = new Date().getTime();
+		var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+			var r = (dt + Math.random()*16)%16 | 0;
+			dt = Math.floor(dt/16);
+			return (c=='x' ? r :(r&0x3|0x8)).toString(16);
+		});
+
+		new QRCode(document.getElementById("QRCode"), "{\"relyingPartyLogo\":\"https://pergas.github.io/TestTakahe/Takahe.png\",\"relyingPartyID\":\"1\",\"relyingPartySessionID\":" + uuid + ",\"attributestoSend\":[\"nsn\",\"identity\"]}");
+		
+		document.getElementById("UUIDdisplay").innerHTML = uuid;
 	</script>
 
 </body>
