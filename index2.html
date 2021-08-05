@@ -1,61 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<title>Test QR Website</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="TakaheStyles.css">
-</head>
-<body>
+	<head>
+		<title>Test QR Website</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="TakaheStyles.css">
+		<script src="./qrcode.js" defer></script>
+	</head>
+	<body>
 
-	<header>
-		<h2>Example Website</h2>
-	</header>
+		<header>
+			<h2>Example Website</h2>
+		</header>
 
-	<section>
-		<nav>
-			<ul>
-				<li><a href="#">Apply</a></li>
-			        <li><a href="#">About</a></li>
-			        <li><a href="#">Contact</a></li>
-			        <li><a href="#">Privacy Policy</a></li>
-		    	</ul>
-		</nav>
+		<section>
+			<nav>
+				<ul>
+					<li><a href="#">Apply</a></li>
+					<li><a href="#">About</a></li>
+					<li><a href="#">Contact</a></li>
+					<li><a href="#">Privacy Policy</a></li>
+				</ul>
+			</nav>
 
-		<QRCode>
-			<div id='QRCode'></div>
-			<p style="font-size: 10px;">UUID:<span id="UUIDdisplay"></span> </p>
-		</QRCode>
+			<QRCode>
+				<div id='QRCode'></div>
+				<p style="font-size: 10px;">UUID:<span id="UUIDdisplay"></span> </p>
+			</QRCode>
 
-		<article>
-			<h1>Apply</h1>
-			<p>Thank you for applying. Please scan the QR code below to begin your application. </p>
-			<p>Scanning the QR code requests the following from your Identity Wallet:
-			<ul>
-				<li>Identity (including full name and date of birth)</li>
-				<li>Email Address</li>
-				<li>National Student Number</li>
-			</ul>
-		</article>
-	</section>
+			<article>
+				<h1>Apply</h1>
+				<p>Thank you for applying. Please scan the QR code below to begin your application. </p>
+				<p>Scanning the QR code requests the following from your Identity Wallet:
+				<ul>
+					<li>Identity (including full name and date of birth)</li>
+					<li>Email Address</li>
+					<li>National Student Number</li>
+				</ul>
+			</article>
+		</section>
 
-	<footer>
-		  <p>(c) Test Website</p>
-		  <p>page version: 0.1 </p>
-	</footer>
+		<footer>
+			  <p>(c) Test Website</p>
+			  <p>page version: 0.1 </p>
+		</footer>
 
-    	<script type="text/javascript">
-		var dt = new Date().getTime();
-		var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-			var r = (dt + Math.random()*16)%16 | 0;
-			dt = Math.floor(dt/16);
-			return (c=='x' ? r :(r&0x3|0x8)).toString(16);
-		});
+		<script type="text/javascript">
+			var dt = new Date().getTime();
+			var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+				var r = (dt + Math.random()*16)%16 | 0;
+				dt = Math.floor(dt/16);
+				return (c=='x' ? r :(r&0x3|0x8)).toString(16);
+			});
 
-		//new QRCode(document.getElementById("QRCode"), "{\"relyingPartyLogo\":\"https://pergas.github.io/TestTakahe/Takahe.png\",\"relyingPartyID\":\"1\",\"relyingPartySessionID\":" + uuid + ",\"attributestoSend\":[\"nsn\",\"identity\"]}");
-		
-		document.getElementById("UUIDdisplay").innerHTML = uuid;
-	</script>
+			new QRCode(document.getElementById("QRCode"), "{\"relyingPartyLogo\":\"https://pergas.github.io/TestTakahe/Takahe.png\",\"relyingPartyID\":\"1\",\"relyingPartySessionID\":" + uuid + ",\"attributestoSend\":[\"nsn\",\"identity\"]}");
 
-</body>
+			document.getElementById("UUIDdisplay").innerHTML = uuid;
+		</script>
+
+	</body>
 </html>
