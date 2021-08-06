@@ -5,7 +5,8 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="TakaheStyles.css">
-		<script src="./qrcode.js" defer></script>
+		<script type="text/javascript" src="jquery.min.js"></script>
+		<script type="text/javascript" src="qrcode.js"></script>
 	</head>
 	<body>
 
@@ -24,8 +25,8 @@
 			</nav>
 
 			<QRCode>
-				<div id='QRCode'></div>
-				<p style="font-size: 10px;">UUID:<span id="UUIDdisplay"></span> </p>
+				<div id='qrcode'></div>
+				<p style="font-size: 10px;">Session UUID:<span id="UUIDdisplay"></span> </p>
 			</QRCode>
 
 			<article>
@@ -52,10 +53,20 @@
 				dt = Math.floor(dt/16);
 				return (c=='x' ? r :(r&0x3|0x8)).toString(16);
 			});
-
-			new QRCode(document.getElementById("QRCode"), "{\"relyingPartyLogo\":\"https://pergas.github.io/TestTakahe/Takahe.png\",\"relyingPartyID\":\"1\",\"relyingPartySessionID\":" + uuid + ",\"attributestoSend\":[\"nsn\",\"identity\"]}");
+			
+			var qrcode = new QRCode(document.getElementById("qrcode"), {
+				width : 300,
+				height : 300,
+				correctLevel : QRCode.CorrectLevel.M
+			});
+			
+			//var codeString = '{"relyingPartyLogo":"https://pergas.github.io/TestTakahe/Tahake.png","relyingPartyID":"1","relyingPartySessionID":"XYZ","attributestoSend":["nsn","identity","email"]}').replace("XYZ", uuid) 
+			
+			var testCodeString = '{"relyingPartyLogo":"https://pergas.github.io/TestTakahe/Takahe.png","relyingPartyId":"1","relyingPartySessionId":"XYZ","attributesToSend":["nsn","identity","email"]}'.replace('XYZ', uuid);
+			qrcode.makeCode(testCodeString);
 
 			document.getElementById("UUIDdisplay").innerHTML = uuid;
+			
 		</script>
 
 	</body>
